@@ -4,7 +4,7 @@
 This project implements a **Genetic Algorithm (GA)** to solve the **Knapsack Problem**—an optimization problem where we aim to maximize the value of selected items while respecting weight and volume constraints.
 
 ## Problem Description  
-You have a bag that can carry a maximum of **500kg** and has **30 m³** of space.  
+You have a bag that can carry a maximum of **1000kg** and has **40 m³** of space.  
 Your goal is to **maximize the total value** of the items you carry **without exceeding** these limits.  
 
 Each item has:  

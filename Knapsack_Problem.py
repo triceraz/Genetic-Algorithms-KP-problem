@@ -1,11 +1,7 @@
-#Genetic Algorithms: The Knapsack Problem
-# You have a bag than carry a maximum of 500kg and room 30 m^3
-# You want to maximise the amount of value you can carry in your bag-,
-# Without exceeding the maximum weight or volum requirements in your bag.
-# Each item is associated with a weight (kg), value ($) and volume (m^3)
-# From left to right: Id, Weight, Value, Volume
+import random
+
 items = """
-1	15	40	0.5 
+1	15	40	0.5
 2	23	65	0.8
 3	7	35	0.3
 4	12	50	0.6
@@ -58,11 +54,46 @@ items = """
 """
 
 
-items_list = [line.split("\t") for line in items.split("\n") if line != ""] #Uses list comprehension to create a list of each line,
-# for each line creates a new list inside that splits at the tab between, creating a 2d-list. Filters out empty lines.
+#Uses list comprehension to create a list of each line, 
+#for each line creates a new list inside that splits at the tab between, creating a 2d-list. Filters out empty lines.
 
-print(items_list)
+items_list = [line.split("\t") for line in items.split("\n") if line != ""] 
         
+#Creates n number of random solutions using a nested for loop
+
+n = 500
+
+random_solutions = []
+
+for i in range(n):
+    list = []
+    for i in range(len(items_list)):
+        list.append(random.randint(0,1))
+    random_solutions.append(list)
     
+#Take each solution and calculate the value, value = 0: if weight > 500kg or volume > 30m^2
 
-
+def value_of_solution(solution):
+    value = 0
+    weight = 0
+    volume = 0
+    counter = 0
+    print(solution)
+    for num in solution:
+        if num == 0:
+            counter += 1
+            continue
+        elif num == 1:
+            value += float(items_list[counter][2])
+            weight += float(items_list[counter][1])
+            volume += float(items_list[counter][3])
+            counter += 1
+            if weight > 1000 or volume > 40:
+                value = 0
+    print(value)
+    print(weight)
+    print(volume)
+    
+# Calculates the values of the random solutions                
+for solution in random_solutions:
+    value_of_solution(solution)
