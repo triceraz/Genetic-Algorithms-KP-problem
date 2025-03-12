@@ -64,7 +64,6 @@ If you’d like to contribute, feel free to fork the repository, create a branch
 ---
 
 ## License  
-## License  
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
 
